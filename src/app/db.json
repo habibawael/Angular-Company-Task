@@ -1,0 +1,154 @@
+{
+  "company": [
+    {
+      "id": 5,
+      "name": "Company A",
+      "address": "jsdksfd",
+      "email": "bibowael_17@hotmail.com",
+      "phone": 123456789,
+      "createdAt": "Wed Mar 03 2021"
+    },
+    {
+      "id": 6,
+      "name": "Company C",
+      "address": "cccccccccc",
+      "email": "companyc@c.com",
+      "phone": 54544555,
+      "createdAt": "Wed Mar 03 2021"
+    },
+    {
+      "id": 7,
+      "name": "MAIN",
+      "address": "mainmain",
+      "email": "main@main",
+      "phone": 123456789,
+      "createdAt": "Wed Mar 03 2021"
+    },
+    {
+      "id": 8,
+      "name": "Google",
+      "address": "google,google",
+      "email": "google@gmail",
+      "phone": 123456789,
+      "createdAt": "Wed Mar 03 2021"
+    },
+    {
+      "id": 9,
+      "name": "Apple",
+      "address": "apple,apple",
+      "email": "apple@apple",
+      "phone": 456789123456,
+      "createdAt": "Wed Mar 03 2021"
+    },
+    {
+      "id": 10,
+      "name": "habiba",
+      "address": "sdfdsg",
+      "email": "fgff@dgbgdf",
+      "phone": 456889,
+      "createdAt": "Wed Mar 03 2021"
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "name": "Employee A",
+      "designation": "Team Lead",
+      "date": "01/01/2020",
+      "email": "EmpEmailA@AAA.com",
+      "phone": "222222222222",
+      "companyID": 1
+    },
+    {
+      "id": 2,
+      "name": "fasasg",
+      "phone": 54646,
+      "email": "bibowael_17@hotmail.com",
+      "designation": "PM",
+      "companyID": 6,
+      "date": "2554-02-24"
+    },
+    {
+      "id": 3,
+      "name": "sdfsdg",
+      "phone": 1124025159,
+      "email": "bibowael_17@hotmail.com",
+      "designation": "Manager",
+      "companyID": 9,
+      "date": "0545-04-04"
+    },
+    {
+      "id": 4,
+      "name": "Mohamed",
+      "phone": 112589645,
+      "email": "bibwaekl@fefg",
+      "designation": "Team Lead",
+      "companyID": 9,
+      "date": "1995-02-17"
+    },
+    {
+      "id": 5,
+      "name": "Dareen",
+      "phone": 516656,
+      "email": "hdubhc@bsdhbd",
+      "designation": "Developer",
+      "companyID": 5,
+      "date": "2016-02-17"
+    }
+  ],
+  "skillSet": [
+    {
+      "id": 1,
+      "skill": "JAVA",
+      "rate": 4,
+      "employeeID": 1
+    },
+    {
+      "id": 2,
+      "skill": "Angular",
+      "rate": 5,
+      "employeeID": 5
+    },
+    {
+      "id": 3,
+      "skill": "CSS",
+      "rate": 3,
+      "employeeID": ""
+    },
+    {
+      "id": 4,
+      "skill": "CSS",
+      "rate": 1,
+      "employeeID": null
+    },
+    {
+      "id": 5,
+      "skill": "Angular",
+      "rate": 3,
+      "employeeID": "Dareen"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": "School A",
+      "course": "Course A",
+      "year": "Mar 2021",
+      "employeeID": 1
+    },
+    {
+      "id": 2,
+      "name": "sdvgfg",
+      "course": "hfjtdyfhr",
+      "year": "0044-09-14",
+      "employeeID": 4
+    },
+    {
+      "id": 3,
+      "name": "sdfrasg",
+      "course": "zsdf",
+      "year": "1995-11-17",
+      "employeeID": 1
+    }
+  ]
+}

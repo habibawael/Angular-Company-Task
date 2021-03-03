@@ -1,0 +1,118 @@
+<div class="main">
+
+    <div class="form-group" style="margin-top: 50px;">
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
+      </div>
+    
+    <div>
+        <mat-table class="box com-table mat-elevation-z8 tab" [dataSource]="comp | paginate: { itemsPerPage: 5, currentPage: p, totalItems: len} | filter:filterTerm">
+
+            <ng-container matColumnDef="name" >
+                <mat-header-cell *matHeaderCellDef class="title">Company Name</mat-header-cell>
+                <mat-cell *matCellDef="let com" class="con">{{com.name}}</mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef class="title">Email</mat-header-cell>
+                <mat-cell class="description-cell con"
+                        *matCellDef="let com">{{com.email}}</mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="phone">
+                <mat-header-cell *matHeaderCellDef class="title">Phone</mat-header-cell>
+                <mat-cell class="duration-cell con"
+                        *matCellDef="let com">{{com.phone}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+                <mat-header-cell *matHeaderCellDef class="title">Created At</mat-header-cell>
+                <mat-cell class="duration-cell con"
+                        *matCellDef="let com">{{com.createdAt}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Action">
+                <mat-header-cell *matHeaderCellDef class="title">Edit/Delete</mat-header-cell>
+                <mat-cell class="duration-cell"
+                        *matCellDef="let com">
+
+                        <button type="button" class="btn btn-secondary" style="margin-left: 10px;" (click)="openDialog(template, com)">
+                            <mat-icon>
+                                 edit
+                            </mat-icon>
+                        </button>
+                        
+                        <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="onButtonClicked(com.id)">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                        </button>
+                        
+                        
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns" class="head"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns" ></mat-row>
+
+        </mat-table>
+        <hr>
+        <pagination-controls (pageChange)="p = $event" class="text-right my-pagination"></pagination-controls>
+
+        
+</div>
+
+
+<ng-template #template >
+    <div>
+
+        <h1 style="text-align: center; font-weight: bold; font-style: italic;">Company Info</h1>
+    
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Name</mat-label>
+            <input matInput type="text" maxlength="50" placeholder="Company's Name" [(ngModel)]="companyy.name" required>
+            <mat-icon matSuffix style="font-size: 40px;">rtt</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Name, Max Length = 50 </mat-hint>
+            </mat-form-field>
+        </p>
+      
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Address</mat-label>
+            <input matInput placeholder="Company's Address"  [(ngModel)]="companyy.address">
+            <mat-icon matSuffix style="font-size: 40px;">add_location</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Address</mat-hint>
+            </mat-form-field>
+        </p>
+      
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Email</mat-label>
+            <input matInput maxlength="100" placeholder="Company's Email" [(ngModel)]="companyy.email" required>
+            <mat-icon matSuffix style="font-size: 40px;">email</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Email, Max Length = 100</mat-hint>
+            </mat-form-field>
+        </p>
+    
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Phone</mat-label>
+            <input matInput type="number" maxlength="15" placeholder="Company's Phone Number" [(ngModel)]="companyy.phone" required>
+            <mat-icon matSuffix style="font-size: 40px;">phone</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Phone Number, Max Length = 15</mat-hint>
+            </mat-form-field>
+        </p>
+    
+        <hr>
+        <button type="button" (click)="editComp()"  style=" margin-left: 338px; color: white; " class="btn btn-secondary">
+    
+        Edit Company
+        
+        </button>
+    
+    </div>
+
+    
+    
+</ng-template>
+

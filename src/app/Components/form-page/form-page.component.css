@@ -1,0 +1,41 @@
+
+@media screen and (max-width: 275px) {
+    .main{
+        padding-left: 40px;
+
+    }
+    .changeFont{
+        display: none;
+    }
+}
+
+@media screen and ( min-width: 276px ) and ( max-width : 895px) {
+    .main{
+        padding-left: 30px;
+
+    }
+}
+
+.changeFont{
+    font-size: 11px;
+}
+
+body, html {
+    height: 100vh;
+    
+  }
+
+  .bg {
+    /* The image used */
+    background-color: #00848C ;
+  
+    /* Full height */
+    height: 100%;
+   
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+

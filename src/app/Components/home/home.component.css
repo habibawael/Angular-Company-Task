@@ -1,0 +1,16 @@
+body, html {
+    height: 100vh;
+  }
+
+  .bg {
+    /* The image used */
+    background-image: url("https://lh3.googleusercontent.com/proxy/ZwRym5irqH2KVkQC7V4tLIPZBeOKM98TyUHVSJuu44svpA8e9RKA3Vedtr8fxtt9q9aMIOtV3rCtkWH6KyVH_rCqCKLGnC4dVOSXm_gJvV_nHW856Tbk");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

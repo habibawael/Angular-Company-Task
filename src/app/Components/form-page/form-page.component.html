@@ -1,0 +1,265 @@
+<html class="main">
+    <body>
+
+        <div class="bg">
+            <div class="row">
+                <button type="button" class="btn btn-dark offset-1 col-10" style="height: 70px;  margin-top: 50px;" (click)="openDialog(template)">Add Company</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-dark offset-1 col-10" style=" height: 70px; margin-top: 50px;" (click)="openDialog(template2)">Add Employee</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-dark offset-1 col-4 offset-sm-1 col-sm-8 changeFont" style=" height: 100px; margin-top: 50px;" (click)="openDialog(template3)">Add Employee Skills</button>
+                <button type="button" class="btn btn-dark offset-2 col-4 offset-sm-1 col-sm-8 changeFont" style=" height: 100px; margin-top: 50px;" (click)="openDialog(template4)">Add Employee Education</button>
+            </div> 
+        </div>
+
+    </body>
+</html>
+
+<ng-template #template >
+    <div>
+
+        <h1 style="text-align: center; font-weight: bold; font-style: italic;">Company Info</h1>
+    
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Name</mat-label>
+            <input matInput type="text" maxlength="50" placeholder="Company's Name" [formControl]="name"  [(ngModel)]="newCompany.name" required>
+            <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+            <mat-icon matSuffix style="font-size: 40px;">rtt</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Name, Max Length = 50 </mat-hint>
+            </mat-form-field>
+        </p>
+      
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Address</mat-label>
+            <input matInput placeholder="Company's Address"  [(ngModel)]="newCompany.address">
+            <mat-icon matSuffix style="font-size: 40px;">add_location</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Address</mat-hint>
+            </mat-form-field>
+        </p>
+      
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Email</mat-label>
+            <input matInput maxlength="100" placeholder="Company's Email" [formControl]="email"  [(ngModel)]="newCompany.email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            <mat-icon matSuffix style="font-size: 40px;">email</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Email, Max Length = 100</mat-hint>
+            </mat-form-field>
+        </p>
+    
+        <p>
+            <mat-form-field appearance="standard" style=" width: 400px;">
+            <mat-label style="font-size: 22px;">Phone</mat-label>
+            <input matInput type="number" maxlength="15" placeholder="Company's Phone Number" [formControl]="phone"  [(ngModel)]="newCompany.phone" required>
+            <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+            <mat-icon matSuffix style="font-size: 40px;">phone</mat-icon>
+            <mat-hint style="font-size: 12px;">Enter Company Phone Number, Max Length = 15</mat-hint>
+            </mat-form-field>
+        </p>
+    
+        <hr>
+        <button type="button" (click)="addComp()"  style=" margin-left: 338px; color: white; " class="btn btn-secondary">
+    
+        Add Company
+        
+        </button>
+    
+    </div>
+
+    
+    
+</ng-template>
+
+<ng-template #template2 >
+    <div>
+
+        <h1 style="text-align: center; font-weight: bold; font-style: italic;">Employee Info</h1>
+            
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Name</mat-label>
+                    <input matInput maxlength="25" placeholder="Employee's Name" [formControl]="name" [(ngModel)]="newEmployee.name" required>
+                    <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+                    <mat-icon matSuffix style="font-size: 40px;">rtt</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Employee Name, Max Length = 25 </mat-hint>
+                    </mat-form-field>
+                </p>
+                
+              
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Join Date</mat-label>
+                    <input matInput type="date" placeholder="Employee's Join Date" [formControl]="date" [(ngModel)]="newEmployee.date" required>
+                    <mat-error *ngIf="date.invalid">{{getDateErrorMessage()}}</mat-error>
+                    <mat-icon matSuffix style="font-size: 40px;">date</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Employee Join Date</mat-hint>
+                    </mat-form-field>
+                </p>
+              
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Email</mat-label>
+                    <input matInput type="email" maxlength="100" placeholder="Employee's Email" [formControl]="email" [(ngModel)]="newEmployee.email" required>
+                    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                    <mat-icon matSuffix style="font-size: 40px;">email</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Employee Email, Max Length = 100</mat-hint>
+                    </mat-form-field>
+                </p>
+            
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Phone</mat-label>
+                    <input matInput type="number" maxlength="15" placeholder="Employee's Phone Number" [formControl]="phone" [(ngModel)]="newEmployee.phone" required>
+                    <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+                    <mat-icon matSuffix style="font-size: 40px;">phone</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Employee Phone Number, Max Length = 15</mat-hint>
+                    </mat-form-field>
+                </p>
+                <div class="row">
+                <div class="col-6">
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Company</mat-label>
+                        <mat-select [(ngModel)]="newEmployee.companyID" name="company" [formControl]="other">
+                        <mat-option  *ngFor="let co of companys" [value]="co.id">
+                            {{co.name}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Designation</mat-label>
+                        <mat-select [(ngModel)]="newEmployee.designation" name="designation" [formControl]="other">
+                        <mat-option  *ngFor="let des of designations" [value]="des">
+                            {{des}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+                <button type="button" (click)="addEmp()" style=" margin-left: 300px; color: white; " class="btn btn-secondary">
+            
+                Add Employee
+                
+                </button>
+
+    </div>
+</ng-template>
+
+<ng-template #template3  >
+    <div>
+
+        <h1 style="text-align: center; font-weight: bold; font-style: italic;">Skill Info</h1>
+
+                <div>
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Employee</mat-label>
+                        <mat-select [(ngModel)]="newSkill.employeeID" name="employee" [formControl]="other" required>
+                        <mat-option  *ngFor="let emp of allEmployees" [value]="emp.name" >
+                            {{emp.name}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Skill</mat-label>
+                        <mat-select [(ngModel)]="newSkill.skill" name="skills" [formControl]="name" required>
+                        <mat-option  *ngFor="let sk of skillsSet" [value]="sk">
+                            {{sk}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            
+                <div>
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Rate</mat-label>
+                        <mat-select [(ngModel)]="newSkill.rate" name="skillsrate" [formControl]="phone" required>
+                        <mat-option  *ngFor="let sk of skillsRate" [value]="sk">
+                            {{sk}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                
+            
+            
+                <button type="button" (click)="addSkill()" style=" margin-left: 50px; color: white; " class="btn btn-secondary">
+            
+                Add Employee Skill
+                
+                </button>
+
+    </div>
+</ng-template>
+
+<ng-template #template4  >
+    <div>
+
+        <h1 style="text-align: center; font-weight: bold; font-style: italic;">Education Info</h1>
+
+                <div>
+                    <br>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Employee</mat-label>
+                        <mat-select [(ngModel)]="newEducation.employeeID" name="employee" [formControl]="other">
+                        <mat-option  *ngFor="let emp of allEmployees" [value]="emp.id">
+                            {{emp.name}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">School/College</mat-label>
+                    <input matInput type="text" maxlength="50" placeholder="School's Name" [formControl]="name" [(ngModel)]="newEducation.name" required>
+                    <mat-icon matSuffix style="font-size: 40px;">school</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter School or College Name</mat-hint>
+                    </mat-form-field>
+                </p>
+            
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Course</mat-label>
+                    <input matInput type="text" maxlength="25" placeholder="Course's Name" [formControl]="company" [(ngModel)]="newEducation.course" required>
+                    <mat-icon matSuffix style="font-size: 40px;">course</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Course Name</mat-hint>
+                    </mat-form-field>
+                </p>
+                
+                <p>
+                    <mat-form-field appearance="standard" style=" width: 400px;">
+                    <mat-label style="font-size: 22px;">Year</mat-label>
+                    <input matInput type="date" placeholder="Completed Year" [formControl]="date" [(ngModel)]="newEducation.year" required>
+                    <mat-icon matSuffix style="font-size: 40px;">year</mat-icon>
+                    <mat-hint style="font-size: 12px;">Enter Completed Year</mat-hint>
+                    </mat-form-field>
+                </p>
+                
+            
+            
+                <button type="button" (click)="addEducation()" style=" margin-left: 338px; color: white; " class="btn btn-secondary">
+            
+                Add Employee Education
+                
+                </button>
+
+    </div>
+</ng-template>
